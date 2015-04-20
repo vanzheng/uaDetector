@@ -11,9 +11,11 @@
 (function(root) {
     var ua = window.navigator.userAgent.toLowerCase(),
         matches,
+        browser = 'unknown',
         version = '0',
         device = 'unknown',
         os = 'unknown',
+        engine = 'unknown',
         uaDetector;
 
     // Browser info
