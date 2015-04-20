@@ -17,30 +17,30 @@
     	uaDetector;
 
     // Browser info
-    // Opera userAgent contains `chrome`, `safari` keywords
+    // Opera ua contains `chrome`, `safari` keywords
     if (ua.indexOf('opera') > -1 || ua.indexOf('opr') > -1) { 
     	browser = 'opera';
 
-    	matches = /[opera|opr][\s\/]+([\d]+)/.exec(ua);
-    	version = matches ? matches[1] : '0';
+    	matches = /(opera|opr)\/([\d]+)/.exec(ua);
+    	version = matches ? matches[2] : '0';
     }
-    // Chrome userAgent contains `chrome`, `safari` keywords
+    // Chrome ua contains `chrome`, `safari` keywords
     else if (ua.indexOf('chrome') > -1) { 
     	browser = 'chrome';
 
-    	matches = /chrome[\s\/]+([\d]+)/.exec(ua);
+    	matches = /chrome\/([\d]+)/.exec(ua);
     	version = matches ? matches[1] : '0';
     }
     else if (ua.indexOf('safari') > -1) {
     	browser = 'safari';
 
-    	matches = /safari[\s\/]+([\d]+)/.exec(ua);
+    	matches = /version\/([\d]+)/.exec(ua);
     	version = matches ? matches[1] : '0';
     }
     else if (ua.indexOf('firefox') > -1) {
     	browser = 'firefox';
 
-    	matches = /firefox[\s\/]+([\d]+)/.exec(ua);
+    	matches = /firefox\/([\d]+)/.exec(ua);
     	version = matches ? matches[1] : '0';
     }
     else if (ua.indexOf('msie') > -1 || ua.indexOf('trident') > -1) {
@@ -78,15 +78,15 @@
     }
 
     // Rendering engine
-    if (userAgent.indexOf('webkit') > -1) {
+    if (ua.indexOf('webkit') > -1) {
         engine = 'webkit';
-    } else  if (userAgent.indexOf('trident') > -1) {
+    } else  if (ua.indexOf('trident') > -1) {
         engine = 'trident';
-    } else if (userAgent.indexOf('presto') > -1) {
+    } else if (ua.indexOf('presto') > -1) {
         engine = 'presto';
-    } else if (userAgent.indexOf('khtml') > -1) {
+    } else if (ua.indexOf('khtml') > -1) {
         engine = 'khtml';
-    } else if (userAgent.indexOf('gecko') > -1) {
+    } else if (ua.indexOf('gecko') > -1) {
         engine = 'gecko';
     } else {
         engine = 'unknown';
