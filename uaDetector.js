@@ -21,26 +21,26 @@
     if (ua.indexOf('opera') > -1 || ua.indexOf('opr') > -1) { 
     	browser = 'opera';
 
-    	matches = /(opera|opr)\/([\d]+)/.exec(ua);
+    	matches = /(opera|opr)\/([\d\.]+)/.exec(ua);
     	version = matches ? matches[2] : '0';
     }
     // Chrome ua contains `chrome`, `safari` keywords
     else if (ua.indexOf('chrome') > -1) { 
     	browser = 'chrome';
 
-    	matches = /chrome\/([\d]+)/.exec(ua);
+    	matches = /chrome\/([\d\.]+)/.exec(ua);
     	version = matches ? matches[1] : '0';
     }
     else if (ua.indexOf('safari') > -1) {
     	browser = 'safari';
 
-    	matches = /version\/([\d]+)/.exec(ua);
+    	matches = /version\/([\d\.]+)/.exec(ua);
     	version = matches ? matches[1] : '0';
     }
     else if (ua.indexOf('firefox') > -1) {
     	browser = 'firefox';
 
-    	matches = /firefox\/([\d]+)/.exec(ua);
+    	matches = /firefox\/([\d\.]+)/.exec(ua);
     	version = matches ? matches[1] : '0';
     }
     else if (ua.indexOf('msie') > -1 || ua.indexOf('trident') > -1) {
@@ -71,7 +71,7 @@
         os = 'windows';
     } else if (ua.indexOf('macintosh') > -1) {
         device = 'macintosh';
-        os = 'macos';
+        os = 'macintosh';
     } else if (ua.indexOf('linux') > -1) {
         device = 'desktop';
         os = 'linux';
