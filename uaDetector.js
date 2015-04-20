@@ -10,43 +10,40 @@
 
 (function(root) {
     var ua = window.navigator.userAgent.toLowerCase(),
-    	matches,
-    	version = '0',
-    	device = 'unknown',
-    	os = 'unknown',
-    	uaDetector;
+        matches,
+        version = '0',
+        device = 'unknown',
+        os = 'unknown',
+        uaDetector;
 
     // Browser info
     // Opera ua contains `chrome`, `safari` keywords
-    if (ua.indexOf('opera') > -1 || ua.indexOf('opr') > -1) { 
-    	browser = 'opera';
+    if (ua.indexOf('opera') > -1 || ua.indexOf('opr') > -1) {
+        browser = 'opera';
 
-    	matches = /(opera|opr)\/([\d\.]+)/.exec(ua);
-    	version = matches ? matches[2] : '0';
+        matches = /(opera|opr)\/([\d\.]+)/.exec(ua);
+        version = matches ? matches[2] : '0';
     }
     // Chrome ua contains `chrome`, `safari` keywords
-    else if (ua.indexOf('chrome') > -1) { 
-    	browser = 'chrome';
+    else if (ua.indexOf('chrome') > -1) {
+        browser = 'chrome';
 
-    	matches = /chrome\/([\d\.]+)/.exec(ua);
-    	version = matches ? matches[1] : '0';
-    }
-    else if (ua.indexOf('safari') > -1) {
-    	browser = 'safari';
+        matches = /chrome\/([\d\.]+)/.exec(ua);
+        version = matches ? matches[1] : '0';
+    } else if (ua.indexOf('safari') > -1) {
+        browser = 'safari';
 
-    	matches = /version\/([\d\.]+)/.exec(ua);
-    	version = matches ? matches[1] : '0';
-    }
-    else if (ua.indexOf('firefox') > -1) {
-    	browser = 'firefox';
+        matches = /version\/([\d\.]+)/.exec(ua);
+        version = matches ? matches[1] : '0';
+    } else if (ua.indexOf('firefox') > -1) {
+        browser = 'firefox';
 
-    	matches = /firefox\/([\d\.]+)/.exec(ua);
-    	version = matches ? matches[1] : '0';
-    }
-    else if (ua.indexOf('msie') > -1 || ua.indexOf('trident') > -1) {
-    	browser = 'msie';
+        matches = /firefox\/([\d\.]+)/.exec(ua);
+        version = matches ? matches[1] : '0';
+    } else if (ua.indexOf('msie') > -1 || ua.indexOf('trident') > -1) {
+        browser = 'msie';
 
-    	matches = /(msie|rv:?)\s?([\d\.]+)/.exec(ua);
+        matches = /(msie|rv:?)\s?([\d\.]+)/.exec(ua);
         version = matches ? matches[2] : '0';
     }
 
@@ -80,7 +77,7 @@
     // Rendering engine
     if (ua.indexOf('webkit') > -1) {
         engine = 'webkit';
-    } else  if (ua.indexOf('trident') > -1) {
+    } else if (ua.indexOf('trident') > -1) {
         engine = 'trident';
     } else if (ua.indexOf('presto') > -1) {
         engine = 'presto';
@@ -92,13 +89,13 @@
         engine = 'unknown';
     }
 
-	uaDetector = {
-		browser: browser,
-		version: version,
-		device: device,
-		os: os,
-		engine: engine
-	}    
+    uaDetector = {
+        browser: browser,
+        version: version,
+        device: device,
+        os: os,
+        engine: engine
+    }
 
-	root.uaDetector = uaDetector;
+    root.uaDetector = uaDetector;
 })(window);
